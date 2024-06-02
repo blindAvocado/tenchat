@@ -35,10 +35,7 @@
 .outer,
 .inner {
   :deep(svg) {
-    fill: none !important;
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    @apply w-full h-full m-0 fill-none
   }
 }
 </style>

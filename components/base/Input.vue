@@ -36,8 +36,8 @@ const togglePassVisibility = () => {
         ...(required && { required }),
         ...(readonly && { readonly }),
       }"
-      class="bg-input-bg border-solid border-[2px] border-input-border p-[20px]
-        w-full rounded-[10px] outline-none text-[18px] text-text-primary font-inter
+      class="bg-input-bg outline outline-[2px] -outline-offset-[2px] outline-input-border p-[20px]
+        w-full rounded-[10px] text-[18px] text-text-primary font-inter leading-[24px]
         placeholder:text-input-placeholder"
       :class="{ 'pl-[50px]': icon }"
     />
@@ -62,9 +62,7 @@ const togglePassVisibility = () => {
 <style scoped lang="scss">
 .icon {
   :deep(svg) {
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    @apply w-full h-full m-0
   }
 }
 </style>

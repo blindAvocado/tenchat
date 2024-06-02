@@ -1,41 +1,39 @@
 <script setup lang="ts">
+import type { IFormLogin } from '~/components/auth/types';
+import { useAuthStore } from '~/store/auth';
+
 definePageMeta({
   layout: "auth",
 });
 
-type FormLogin = {
-  email: string;
-  password: string;
-}
+const router = useRouter();
+const authStore = useAuthStore();
 
-const form = ref<FormLogin>({
-  email: "",
-  password: "",
-});
-
-const onSubmit = () => {
-  console.log(form.value);
+const onSubmit = async (form: IFormLogin) => {
+  try {
+    await $fetch('https://dummyjson.com/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: form.email, password: form.password })
+    });
+  } catch (e) {
+    if (e instanceof Error) {
+      console.error(e.message);
+    }
+  } finally {
+    authStore.setForm(form);
+    router.push('/otp');
+  }
 }
 </script>
 
 <template>
   <AuthWrapper>
     <template v-slot:form>
-      <div class="form-wrapper">
+      <div class="max-w-[477px] w-full">
         <h1 class="font-bold text-text-dark text-[40px] mb-[25px]">Login to your Account</h1>
-        <div class="subtitle font-medium text-[15px] text-text-primary text-center h-[25px] mb-[25px]">with email</div>
-        <form class="form">
-          <div class="flex flex-col gap-[10px]">
-            <BaseInput placeholder="Email" icon="envelope" type="email" :required="true" v-model="form.email" />
-            <BaseInput placeholder="Password" icon="shield-slash" type="password" :required="true" v-model="form.password" />
-            <span>{{ form }}</span>
-          </div>
-          <BaseButton type="submit" class="mt-[25px]" @click="onSubmit">LOG IN</BaseButton>
-          <div class="font-[16px] flex items-center justify-center gap-[5px] text-text-primary text-center mt-[20px]">
-            <span>Don’t have account?</span>
-            <NuxtLink to="/signup" class="font-bold text-accent-light">Create an account</NuxtLink>
-          </div>
-        </form>
+        <div class="subtitle flex justify-between items-center font-medium text-[15px] text-text-primary text-center h-[25px] mb-[25px]">with email</div>
+        <AuthFormLogin @submit="onSubmit" />
       </div>
     </template>
     <template v-slot:image>
@@ -53,13 +51,14 @@ const onSubmit = () => {
 <style scoped lang="scss">
 .image {
   :deep(svg) {
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    @apply w-full h-full m-0
   }
 }
 
-// .subtitle {
-//   &:after
-// }
+.subtitle {
+  &::after,
+  &::before {
+    @apply content-[''] h-auto max-w-[120px] flex-grow block border-b border-text-primary
+  }
+}
 </style>

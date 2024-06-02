@@ -19,7 +19,7 @@ const onClick = () => {
   <button
     :type
     @click.prevent="onClick"
-    class="bg-accent-base text-[#ffffff] font-inter font-bold text-[20px] cursor-pointer p-[20px] rounded-[10px] w-full"
+    class="bg-accent-base text-[#ffffff] font-inter font-bold text-[20px] leading-[24px] cursor-pointer p-[20px] rounded-[10px] w-full transition-all"
     :class="{ 'bg-accent-light cursor-default pointer-events-none': disabled }">
     <slot></slot>
   </button>
