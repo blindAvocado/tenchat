@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { InputHTMLAttributes } from 'vue';
 
 type InputType = "text" | "email" | "password" | "number"; 
 
@@ -12,6 +13,7 @@ const props = withDefaults(
     error?: string;
     required?: boolean;
     readonly?: boolean;
+    autocomplete?: InputHTMLAttributes['autocomplete']
   }>(),
   {
     type: "text",
@@ -35,6 +37,7 @@ const togglePassVisibility = () => {
         ...(placeholder && { placeholder }),
         ...(required && { required }),
         ...(readonly && { readonly }),
+        ...(autocomplete && { autocomplete }),
       }"
       class="bg-input-bg outline outline-[2px] -outline-offset-[2px] outline-input-border p-[20px]
         w-full rounded-[10px] text-[18px] text-text-primary font-inter leading-[24px]

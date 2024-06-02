@@ -31,8 +31,8 @@ const onSubmit = async (form: IFormLogin) => {
   <AuthWrapper>
     <template v-slot:form>
       <div class="max-w-[477px] w-full">
-        <h1 class="font-bold text-text-dark text-[40px] mb-[25px]">Login to your Account</h1>
-        <div class="subtitle flex justify-between items-center font-medium text-[15px] text-text-primary text-center h-[25px] mb-[25px]">with email</div>
+        <h1 class="font-bold text-text-dark text-[40px] mb-[25px] leading-[40px]">Login to your Account</h1>
+        <div class="subtitle max-w-[453px] flex justify-between items-center font-medium text-[15px] text-text-primary text-center h-[25px] mx-auto mb-[25px]">with email</div>
         <AuthFormLogin @submit="onSubmit" />
       </div>
     </template>
@@ -41,8 +41,8 @@ const onSubmit = async (form: IFormLogin) => {
     </template>
     <template v-slot:text>
       <div class="text-center text-text-light">
-        <div class="font-bold text-[20px]">Connect with any device.</div>
-        <div class="text-text-light/75 text-[16px]">Everything you need is an internet connection.</div>
+        <div class="font-bold text-[20px] leading-[25px]">Connect with any device.</div>
+        <div class="text-text-light/75 text-[16px] leading-[26px]">Everything you need is an internet connection.</div>
       </div>
     </template>
   </AuthWrapper>

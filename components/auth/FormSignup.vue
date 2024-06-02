@@ -58,10 +58,36 @@ onMounted(() => {
 <template>
   <form @submit.prevent="onSubmit" class="max-w-[453px] mx-auto">
     <div class="flex flex-col gap-[10px]">
-      <BaseInput placeholder="Username" icon="person" type="text" :required="true" v-model="form.username" />
-      <BaseInput placeholder="Email" icon="envelope" type="email" :required="true" v-model="form.email" />
-      <BaseInput placeholder="Password" icon="shield-slash" type="password" :required="true" v-model="form.password" />
-      <BaseInput placeholder="Confirm Password" icon="shield-slash" type="password" :required="true" v-model="form.confirmPassword" />
+      <BaseInput 
+        placeholder="Username" 
+        icon="person" 
+        type="text"
+        autocomplete="username" 
+        :required="true" 
+        v-model="form.username" 
+      />
+      <BaseInput 
+        placeholder="Email" 
+        icon="envelope" 
+        type="email"
+        autocomplete="email"
+        :required="true" 
+        v-model="form.email" 
+      />
+      <BaseInput 
+        placeholder="Password" 
+        icon="shield-slash" 
+        type="password" 
+        :required="true" 
+        v-model="form.password" 
+      />
+      <BaseInput 
+        placeholder="Confirm Password" 
+        icon="shield-slash" 
+        type="password" 
+        :required="true" 
+        v-model="form.confirmPassword" 
+      />
       <BaseCheckbox v-model="form.terms">
         Accept <NuxtLink to="/terms" class="font-medium text-accent-light">terms and conditions</NuxtLink>
       </BaseCheckbox>

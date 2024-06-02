@@ -33,8 +33,8 @@ const goBack = () => {
     </template>
     <template v-slot:text>
       <div class="text-center text-text-light">
-        <div class="font-bold text-[20px]">It's just OTP verification</div>
-        <div class="text-text-light/75 text-[16px]">You are one step away from recovering your password.</div>
+        <div class="font-bold text-[20px] leading-[25px]">It's just OTP verification</div>
+        <div class="text-text-light/75 text-[16px] leading-[26px]">You are one step away from recovering your password.</div>
       </div>
     </template>
   </AuthWrapper>

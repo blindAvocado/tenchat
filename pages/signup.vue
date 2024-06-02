@@ -30,8 +30,8 @@ const onSubmit = async (form: IFormSignup) => {
     </template>
     <template v-slot:text>
       <div class="text-center text-text-light">
-        <div class="font-bold text-[20px]">Join us!</div>
-        <div class="text-text-light/75 text-[16px]">Just go through the boring process of creating an account.</div>
+        <div class="font-bold text-[20px] leading-[25px]">Join us!</div>
+        <div class="text-text-light/75 text-[16px] leading-[26px]">Just go through the boring process of creating an account.</div>
       </div>
     </template>
   </AuthWrapper>

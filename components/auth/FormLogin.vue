@@ -48,8 +48,21 @@ onMounted(() => {
 <template>
   <form @submit.prevent="onSubmit" class="max-w-[453px] mx-auto">
     <div class="flex flex-col gap-[10px]">
-      <BaseInput placeholder="Email" icon="envelope" type="email" :required="true" v-model="form.email" />
-      <BaseInput placeholder="Password" icon="shield-slash" type="password" :required="true" v-model="form.password" />
+      <BaseInput 
+        placeholder="Email" 
+        icon="envelope" 
+        type="email" 
+        :required="true" 
+        autocomplete="email"
+        v-model="form.email" 
+      />
+      <BaseInput 
+        placeholder="Password" 
+        icon="shield-slash" 
+        type="password" 
+        :required="true" 
+        v-model="form.password" 
+      />
     </div>
     <BaseButton type="submit" :disabled="!isFormValid" class="mt-[25px]" @click="onSubmit">LOG IN</BaseButton>
     <div class="font-[16px] flex items-center justify-center gap-[5px] text-text-primary text-center mt-[20px]">
